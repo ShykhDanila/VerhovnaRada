@@ -28,4 +28,11 @@ public class Human {
         this.growth = growth;
     }
 
+    @Override
+    public String toString() {
+        return "Human{" +
+                "weight=" + weight +
+                ", growth=" + growth +
+                '}';
+    }
 }

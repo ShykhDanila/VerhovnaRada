@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Deputy extends Human{
+public class Deputy extends Human {
 
     private String prizvusche;
     private String name;
@@ -22,7 +22,7 @@ public class Deputy extends Human{
 
 
     public void give_grafter(){
-        if(grafter == false){
+        if(!grafter){
             System.out.println("&quot;Цей депутат не бере хабарів&quot;");
         }
         else{
@@ -31,6 +31,7 @@ public class Deputy extends Human{
             int suma = sc.nextInt();
             if (suma > 5000) {
                 System.out.println("&quot;Міліція ув'язнить депутата&quot;");
+                setGiveGrafter(suma);
             }
             else {
                 setGiveGrafter(suma);
@@ -78,14 +79,14 @@ public class Deputy extends Human{
         this.giveGrafter = giveGrafter;
     }
 
-    /* public void show(){
-        System.out.println("Deputy [Прізвище:" + prizvusche + "; Ім'я:" + name + "; Вік:" + age + "; Хабарник? " + grafter + "]");
-    }
-
-    */
-
     @Override
     public String toString() {
-        return "Deputy [Прізвище:" + prizvusche + "; Ім'я:" + name + "; Вік:" + age + "; Хабарник? " + grafter + "]";
+        return "Deputy{" +
+                "prizvusche='" + prizvusche + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", grafter=" + grafter +
+                ", giveGrafter=" + giveGrafter +
+                '}';
     }
 }

@@ -2,13 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Faction extends Deputy{
+public class Faction {
     private String nazvaFrak;
-
-    public Faction(int weight, int growth, String prizvusche, String name, int age, boolean grafter, String nazvaFrak) {
-        super(weight, growth, prizvusche, name, age, grafter);
-        this.nazvaFrak = nazvaFrak;
-    }
 
     public Faction(String nazvaFrak) {
         this.nazvaFrak = nazvaFrak;
@@ -17,10 +12,8 @@ public class Faction extends Deputy{
     public Faction() {
     }
 
-    public Faction(int weight, int growth, String surname, String name, int age1, boolean grafter1, Faction faction) {
-    }
-
     List<Deputy> deputat = new ArrayList<>();
+    Deputy deputy = new Deputy();
 
     public void add(){
         System.out.println("Введіть прізвище нового депутата ");
@@ -41,7 +34,10 @@ public class Faction extends Deputy{
         System.out.println("Депутата хабарник? (true or f) ");
         Scanner scann = new Scanner(System.in);
         boolean grafter1 = scann.hasNextBoolean();
-        deputat.add(new Deputy(weight,growth,surname,name,age1,grafter1));
+        deputy = new Deputy(weight,growth,surname,name,age1,grafter1);
+        deputy.give_grafter();
+        deputat.add(deputy);
+
     }
 
     public void delete(int index){
@@ -49,21 +45,15 @@ public class Faction extends Deputy{
     }
     public void habarnuku(){
         for (Deputy s: deputat) {
-            if(s.isGrafter()==true){
+            if(s.isGrafter()){
                 System.out.println(s);
             }
         }
     }
 
-
-public void show(){
-    for (Deputy s: deputat) {
-        System.out.println(s);
-    }
-    }
-
     public void ochustka(){
-        deputat.removeAll(deputat);
+        //deputat.removeAll(deputat);
+        deputat.clear();
     }
 
     public String getNazvaFrak() {
@@ -85,7 +75,7 @@ public void show(){
     @Override
     public String toString() {
         return "Faction{" +
-                "nazvaFrak='" + nazvaFrak + '\'' +
+                "nazvaFrak='" + nazvaFrak +
                 '}';
     }
 }
