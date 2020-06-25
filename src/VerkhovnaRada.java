@@ -46,6 +46,30 @@ public class VerkhovnaRada extends Faction {
         //factions.get(index-1).deputat.removeAll(deputat);
         faction.ochustka();
     }
+    public void maxumumHabar(){
+        List<Deputy> deputies = new ArrayList<>();
+        for (Faction f:
+             factions) {
+            f.deputat.sort(Collections.reverseOrder());
+            deputies.add(f.deputat.get(0));
+        }
+        deputies.sort(Collections.reverseOrder());
+        System.out.println(deputies.get(0));
+    }
+    public void maxHabarnuk() {
+        for (Faction faction :
+                factions) {
+            lich++;
+            System.out.println(lich + ". " + faction);
+        }
+        lich = 0;
+        Scanner scanner = new Scanner(System.in);
+        int numFaction = scanner.nextInt();
+        factions.get(numFaction - 1).deputat.sort(Collections.reverseOrder());
+        System.out.println("У фракції " + factions.get(numFaction-1).getNazvaFrak() + " найбільший хабарник:");
+        System.out.println(factions.get(numFaction-1).deputat.get(0));
+
+    }
     public void deleteDepOfFraction(){
         System.out.println("Виберіть депутат, щоб його видалити ");
         for (Faction value : factions) {

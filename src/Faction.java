@@ -50,7 +50,6 @@ public class Faction {
             }
         }
     }
-
     public void ochustka(){
         //deputat.removeAll(deputat);
         deputat.clear();

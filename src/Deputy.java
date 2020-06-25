@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Deputy extends Human {
+public class Deputy extends Human implements Comparable {
 
     private String prizvusche;
     private String name;
@@ -88,5 +88,10 @@ public class Deputy extends Human {
                 ", grafter=" + grafter +
                 ", giveGrafter=" + giveGrafter +
                 '}';
+    }
+    @Override
+    public int compareTo(Object o) {
+        Deputy d = (Deputy) o;
+        return this.getGiveGrafter() - d.getGiveGrafter();
     }
 }

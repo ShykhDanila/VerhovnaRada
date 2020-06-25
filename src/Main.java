@@ -6,6 +6,7 @@ public class Main {
         VerkhovnaRada verkhRada = new VerkhovnaRada();
 
         while (true){
+            System.out.println("0. Вийти з програми");
             System.out.println("1. Додати фракцію");
             System.out.println("2. Видалити конкретну фракцію");
             System.out.println("3. Вивести усі фракції");
@@ -14,13 +15,14 @@ public class Main {
             System.out.println("6. Додати депутата у фракцію");
             System.out.println("7. Видалити депутата з фракції");
             System.out.println("8. Вивести список хабарників");
-            System.out.println("9. Вийти з програми");
+            System.out.println("9. Вивести найбільшого хабарника з верховної ради");
+            System.out.println("10. Вивести найбільшого хабарника з фракції");
 
 
 
             Scanner sc = new Scanner(System.in);
             int input = sc.nextInt();
-            switch (input){
+            switch (input) {
                 case 1:
                     verkhRada.addFraction();
                     System.out.println("*********");
@@ -33,7 +35,7 @@ public class Main {
                     verkhRada.show1();
                     System.out.println("*********");
                     break;
-                case 4 :
+                case 4:
                     verkhRada.clearFraction();
                     System.out.println("*********");
                     break;
@@ -50,13 +52,21 @@ public class Main {
                     System.out.println("*********");
                     break;
                 case 8:
-                    for (int i = 0 ; i < verkhRada.factions.size() ; i++) {
+                    for (int i = 0; i < verkhRada.factions.size(); i++) {
                         verkhRada.factions.get(i).habarnuku();
                     }
                     System.out.println("*********");
                     break;
                 case 9:
-                   System.exit(9);
+                    System.out.println("Найбільший хабарник у Верховній Раді:");
+                    verkhRada.maxumumHabar();
+                    break;
+                case 10:{
+                   verkhRada.maxHabarnuk();
+                }
+                    break;
+                case 0:
+                    System.exit(0);
                     break;
             }
         }
